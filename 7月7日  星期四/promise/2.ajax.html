@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>
+<script>
+
+
+
+
+    var xhr=new XMLHttpRequest;
+    xhr.open('GET','users.json',true);
+    xhr.responseType='json';
+    xhr.onreadystatechange= function () {
+        if(xhr.readyState==4&&xhr.status==200){
+            document.querySelector('#div1').innerHTML=xhr.response.name;
+            console.log(xhr.response.name);
+    }
+    }
+    xhr.send();
+
+
+    /*
+    * function ajax({method='GET',url=new Error('url is required')}){
+     return  new Promise(function (resolve,reject){
+     var xhr=new XMLHttpRequest;
+     xhr.open('GET','users.json',true);
+     xhr.responseType='json';
+     xhr.onreadystatechange= function () {
+     if(xhr.readyState==4&&xhr.status==200){
+     document.querySelector('#div1').innerHTML=xhr.response.name;
+     }
+     }
+     xhr.send();
+     })}
+    * */
+</script>
